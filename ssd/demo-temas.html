@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Sistema de Temas SalonFlow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* TEMA PADRÃO (SALONFLOW - ROSA E VIOLETA) */
+        :root {
+            --background: 0 0% 100%;
+            --foreground: 222.2 84% 4.9%;
+            --card: 0 0% 100%;
+            --card-foreground: 222.2 84% 4.9%;
+            --primary: 326 87% 56%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 262.1 83.3% 57.8%;
+            --secondary-foreground: 0 0% 100%;
+            --accent: 210 40% 96%;
+            --accent-foreground: 222.2 84% 4.9%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 100%;
+            --success: 142.1 76.2% 36.3%;
+            --success-foreground: 0 0% 100%;
+            --warning: 47.9 95.8% 53.1%;
+            --warning-foreground: 38.3 95.5% 14.3%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --border: 214.3 31.8% 91.4%;
+            --input: 214.3 31.8% 91.4%;
+            --ring: 326 87% 56%;
+            --radius: 0.75rem;
+        }
+
+        /* TEMA AMARELO E PRETO */
+        .theme-yellow-dark {
+            --background: 0 0% 8%;
+            --foreground: 0 0% 98%;
+            --card: 0 0% 12%;
+            --card-foreground: 0 0% 98%;
+            --primary: 48 96% 53%;
+            --primary-foreground: 0 0% 8%;
+            --secondary: 48 96% 45%;
+            --secondary-foreground: 0 0% 8%;
+            --accent: 0 0% 15%;
+            --accent-foreground: 0 0% 98%;
+            --destructive: 0 72% 51%;
+            --destructive-foreground: 0 0% 98%;
+            --success: 142.1 76.2% 36.3%;
+            --success-foreground: 0 0% 100%;
+            --warning: 47.9 95.8% 53.1%;
+            --warning-foreground: 38.3 95.5% 14.3%;
+            --muted: 0 0% 20%;
+            --muted-foreground: 0 0% 60%;
+            --border: 0 0% 20%;
+            --input: 0 0% 20%;
+            --ring: 48 96% 53%;
+        }
+
+        /* TEMA MARROM E BRANCO */
+        .theme-brown-light {
+            --background: 35 33% 96%;
+            --foreground: 30 54% 18%;
+            --card: 0 0% 100%;
+            --card-foreground: 30 54% 18%;
+            --primary: 30 54% 40%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 30 54% 30%;
+            --secondary-foreground: 0 0% 100%;
+            --accent: 35 33% 92%;
+            --accent-foreground: 30 54% 18%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 100%;
+            --success: 142.1 76.2% 36.3%;
+            --success-foreground: 0 0% 100%;
+            --warning: 47.9 95.8% 53.1%;
+            --warning-foreground: 38.3 95.5% 14.3%;
+            --muted: 35 33% 88%;
+            --muted-foreground: 30 54% 40%;
+            --border: 35 33% 88%;
+            --input: 35 33% 88%;
+            --ring: 30 54% 40%;
+        }
+
+        /* TEMA ROXO E LARANJA */
+        .theme-purple-orange {
+            --background: 0 0% 100%;
+            --foreground: 280 50% 20%;
+            --card: 0 0% 100%;
+            --card-foreground: 280 50% 20%;
+            --primary: 280 65% 60%;
+            --primary-foreground: 0 0% 100%;
+            --secondary: 25 95% 53%;
+            --secondary-foreground: 0 0% 100%;
+            --accent: 280 20% 95%;
+            --accent-foreground: 280 50% 20%;
+            --destructive: 0 84.2% 60.2%;
+            --destructive-foreground: 0 0% 100%;
+            --success: 142.1 76.2% 36.3%;
+            --success-foreground: 0 0% 100%;
+            --warning: 47.9 95.8% 53.1%;
+            --warning-foreground: 38.3 95.5% 14.3%;
+            --muted: 280 20% 95%;
+            --muted-foreground: 280 30% 50%;
+            --border: 280 20% 90%;
+            --input: 280 20% 90%;
+            --ring: 280 65% 60%;
+        }
+
+        /* Configuração do Tailwind para usar as variáveis */
+        .bg-background { background-color: hsl(var(--background)); }
+        .text-foreground { color: hsl(var(--foreground)); }
+        .bg-card { background-color: hsl(var(--card)); }
+        .text-card-foreground { color: hsl(var(--card-foreground)); }
+        .bg-primary { background-color: hsl(var(--primary)); }
+        .text-primary { color: hsl(var(--primary)); }
+        .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+        .bg-secondary { background-color: hsl(var(--secondary)); }
+        .text-secondary { color: hsl(var(--secondary)); }
+        .text-secondary-foreground { color: hsl(var(--secondary-foreground)); }
+        .bg-success { background-color: hsl(var(--success)); }
+        .text-success { color: hsl(var(--success)); }
+        .bg-warning { background-color: hsl(var(--warning)); }
+        .text-warning { color: hsl(var(--warning)); }
+        .bg-destructive { background-color: hsl(var(--destructive)); }
+        .text-destructive { color: hsl(var(--destructive)); }
+        .bg-accent { background-color: hsl(var(--accent)); }
+        .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+        .border-border { border-color: hsl(var(--border)); }
+        .from-primary { --tw-gradient-from: hsl(var(--primary)); }
+        .to-secondary { --tw-gradient-to: hsl(var(--secondary)); }
+    </style>
+</head>
+<body class="bg-background text-foreground min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header com seletor de temas -->
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-foreground mb-4">SalonFlow - Sistema de Temas</h1>
+            <p class="text-muted-foreground mb-6">Demonstração do sistema de temas dinâmico</p>
+            
+            <!-- Seletor de Temas -->
+            <div class="flex flex-wrap gap-4 mb-8">
+                <button onclick="changeTheme('')" class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity">
+                    Tema Padrão
+                </button>
+                <button onclick="changeTheme('theme-yellow-dark')" class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity">
+                    Amarelo e Preto
+                </button>
+                <button onclick="changeTheme('theme-brown-light')" class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity">
+                    Marrom e Branco
+                </button>
+                <button onclick="changeTheme('theme-purple-orange')" class="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity">
+                    Roxo e Laranja
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid de Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Card 1 - Dashboard -->
+            <div class="bg-card border border-border rounded-xl p-6 shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="bg-success/10 rounded-lg p-3 mr-4">
+                        <div class="w-6 h-6 bg-success rounded"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-foreground">Ganhos do Dia</h3>
+                        <p class="text-2xl font-bold text-success">R$ 1.250,00</p>
+                    </div>
+                </div>
+                <p class="text-sm text-muted-foreground">+12% em relação ao dia anterior</p>
+            </div>
+
+            <!-- Card 2 - Agendamentos -->
+            <div class="bg-card border border-border rounded-xl p-6 shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="bg-primary/10 rounded-lg p-3 mr-4">
+                        <div class="w-6 h-6 bg-primary rounded"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-foreground">Agendamentos</h3>
+                        <p class="text-2xl font-bold text-primary">8</p>
+                    </div>
+                </div>
+                <p class="text-sm text-muted-foreground">4 agendamentos restantes hoje</p>
+            </div>
+
+            <!-- Card 3 - Ticket Médio -->
+            <div class="bg-card border border-border rounded-xl p-6 shadow-sm">
+                <div class="flex items-center mb-4">
+                    <div class="bg-secondary/10 rounded-lg p-3 mr-4">
+                        <div class="w-6 h-6 bg-secondary rounded"></div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold text-foreground">Ticket Médio</h3>
+                        <p class="text-2xl font-bold text-secondary">R$ 156,25</p>
+                    </div>
+                </div>
+                <p class="text-sm text-muted-foreground">+5% em relação ao mês passado</p>
+            </div>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="mt-8 flex flex-wrap gap-4">
+            <button class="bg-gradient-to-r from-primary to-secondary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                Novo Agendamento
+            </button>
+            <button class="bg-success text-success-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                Relatório Financeiro
+            </button>
+            <button class="bg-warning text-warning-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                Enviar Lembretes
+            </button>
+            <button class="bg-destructive text-destructive-foreground px-6 py-3 rounded-lg font-medium hover:opacity-90 transition-opacity">
+                Cancelar Agendamento
+            </button>
+        </div>
+
+        <!-- Lista de Agendamentos -->
+        <div class="mt-8">
+            <h2 class="text-2xl font-bold text-foreground mb-4">Agendamentos de Hoje</h2>
+            <div class="bg-card border border-border rounded-lg overflow-hidden">
+                <div class="divide-y divide-border">
+                    <div class="p-4 hover:bg-accent transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-foreground">09:00 - Maria Silva</p>
+                                <p class="text-sm text-muted-foreground">Corte e Escova • Ana Costa</p>
+                            </div>
+                            <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-sm">
+                                Confirmado
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-accent transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-foreground">10:30 - João Santos</p>
+                                <p class="text-sm text-muted-foreground">Barba e Bigode • Carlos Lima</p>
+                            </div>
+                            <span class="bg-warning text-warning-foreground px-3 py-1 rounded-full text-sm">
+                                Pendente
+                            </span>
+                        </div>
+                    </div>
+                    <div class="p-4 hover:bg-accent transition-colors">
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="font-medium text-foreground">14:00 - Ana Oliveira</p>
+                                <p class="text-sm text-muted-foreground">Coloração • Paula Mendes</p>
+                            </div>
+                            <span class="bg-success text-success-foreground px-3 py-1 rounded-full text-sm">
+                                Confirmado
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function changeTheme(themeClass) {
+            document.documentElement.className = themeClass;
+            
+            // Salva a preferência no localStorage
+            localStorage.setItem('salonflow-theme', themeClass);
+            
+            // Feedback visual
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(btn => btn.classList.remove('ring-2', 'ring-primary'));
+            event.target.classList.add('ring-2', 'ring-primary');
+        }
+
+        // Carrega o tema salvo ao iniciar
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('salonflow-theme');
+            if (savedTheme) {
+                document.documentElement.className = savedTheme;
+            }
+        });
+    </script>
+</body>
+</html>
+
